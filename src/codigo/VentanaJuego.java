@@ -26,6 +26,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     static int ALTOPANTALLA = 450;
     BufferedImage buffer = null;
     
+    Nave minave = new Nave();
+    
     Timer temporizador = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -42,6 +44,10 @@ public class VentanaJuego extends javax.swing.JFrame {
         buffer.createGraphics();
         
         temporizador.start();
+      ////////////////////////
+      
+      minave.x=ANCHOPANTALLA/2-minave.imagen.getWidth(this)/2;
+        minave.y=ALTOPANTALLA - minave.imagen.getWidth(this)-30;
     }
     
     private void bucleDelJuego(){
@@ -50,7 +56,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         g2.setColor(Color.black);
         g2.fillRect(0, 0, ANCHOPANTALLA, ALTOPANTALLA);
         /////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        g2.drawImage(minave.imagen, minave.x, minave.y, null);
         //redibuja,os aquui cada elemento
         
         
